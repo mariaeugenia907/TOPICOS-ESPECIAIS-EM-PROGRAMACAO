@@ -9,6 +9,7 @@
 
 ## Regras
 :rocket: Você vai navegar no espaço com a ajuda das setas do seu teclado, podendo se mover para todos os lados
+
 :rocket:Você também pode se proteger atirando misseis para destruir os meteoros
 
 ## Tecnologias utilizadas
