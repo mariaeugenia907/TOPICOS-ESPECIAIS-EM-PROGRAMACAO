@@ -14,6 +14,7 @@
 
 ## Equipe
 :woman: Maria Eugênia
+
 :woman: Maria Alice
 
 ## Tecnologias utilizadas
