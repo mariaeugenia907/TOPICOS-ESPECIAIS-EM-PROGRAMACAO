@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/Graphics/spritesheets/ship.png" type="Texture" id=1]
+[ext_resource path="res://scripts/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://scripts/player/ShootSpawner.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Left_1"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 6 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Left_2"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Right_1"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 8 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Right_2"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 9 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Left_1"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Left_2"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Right_1"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Right_2"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=12]
+blend_point_0/node = SubResource( 7 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 8 )
+blend_point_1/pos = -0.4
+blend_point_2/node = SubResource( 9 )
+blend_point_2/pos = -0.9
+blend_point_3/node = SubResource( 10 )
+blend_point_3/pos = 0.4
+blend_point_4/node = SubResource( 11 )
+blend_point_4/pos = 0.9
+
+[node name="Player" type="Area2D" groups=["player"]]
+position = Vector2( 187, 503 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+speed = 2.5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+anims/Left_1 = SubResource( 2 )
+anims/Left_2 = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+anims/Right_1 = SubResource( 5 )
+anims/Right_2 = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/blend_position = 0.0
+
+[node name="ShootSpawner" type="Position2D" parent="."]
+position = Vector2( 0, -12 )
+script = ExtResource( 3 )
