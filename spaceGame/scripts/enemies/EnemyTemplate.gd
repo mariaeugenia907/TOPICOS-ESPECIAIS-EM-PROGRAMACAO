@@ -44,5 +44,8 @@ func create_explosion() -> void:
 	instanced_explosion.global_position = global_position
 	get_tree().root.call_deferred("add_child", instanced_explosion)
 	
+	if can_increase_score:
+		get_tree().call_group("interface", "increase_score", score)
+	
 	queue_free()
 
