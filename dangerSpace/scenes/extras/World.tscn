@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/enemies/EnemySmall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/enemies/EnemyMedium.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemies/EnemyBig.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/extras/SpawnerTemplate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/extras/World.gd" type="Script" id=6]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=7]
+
+[node name="World" type="Node"]
+script = ExtResource( 6 )
+custom_initial_position = Vector2( 180, 600 )
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 5 )]
+scenes_to_spawn = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ]
+spawn_cooldown = 2.5
+
+[node name="Interface" parent="." instance=ExtResource( 7 )]
+
+[connection signal="start_game" from="Interface/ButtonsContainer" to="." method="start_game"]
+[connection signal="start_game" from="Interface/ButtonsContainer" to="EnemySpawner" method="start_game"]
+
+[editable path="Interface"]
