@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desert-backgorund-looped.png-f24a53cd0428d2ec561d2a8cdef66281.stex"
+path="res://.import/space-background.png-42f63f3fe06a60047b9bdbbd1b1d9790.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Graphics/backgrounds/desert-backgorund-looped.png"
-dest_files=[ "res://.import/desert-backgorund-looped.png-f24a53cd0428d2ec561d2a8cdef66281.stex" ]
+source_file="res://assets/Graphics/backgrounds/space-background.png"
+dest_files=[ "res://.import/space-background.png-42f63f3fe06a60047b9bdbbd1b1d9790.stex" ]
 
 [params]
 

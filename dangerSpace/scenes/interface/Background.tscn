@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/Graphics/backgrounds/desert-backgorund.png" type="Texture" id=1]
+[ext_resource path="res://assets/Graphics/backgrounds/space-background.png" type="Texture" id=1]
 [ext_resource path="res://assets/Graphics/backgrounds/clouds-transparent.png" type="Texture" id=2]
 [ext_resource path="res://scripts/interface/Background.gd" type="Script" id=3]
 
