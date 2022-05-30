@@ -5,7 +5,7 @@
 :video_game: Recriação do Jogo Clássico baseando em um shmup básico
 
 ## Objetivo
-:space_invader: Marcar pontos protegendo a nave dos meteoros do espaço
+:space_invader: Marcar pontos protegendo a nave das naves inimigas
 
 ## Regras
 :rocket: Você vai navegar no espaço com a ajuda das setas do seu teclado, podendo se mover para todos os lados
